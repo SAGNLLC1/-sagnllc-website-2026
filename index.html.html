@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAGN LLC — General Services & Solutions | Government Contractor</title>
+<meta name="description" content="SAGN LLC is a woman-owned small business providing janitorial services, industrial equipment sourcing, and supply chain solutions to federal, state, and local government agencies in Florida.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0F2B4C;
+  --navy-mid: #1A3D6B;
+  --blue: #2E6DA8;
+  --blue-light: #3D8FD4;
+  --sky: #E8F1F8;
+  --sky-deep: #D1E3F0;
+  --cream: #FAFCFE;
+  --white: #FFFFFF;
+  --text: #1C2A3A;
+  --text-secondary: #4A5E73;
+  --text-light: #6B7F94;
+  --border: #D4DFE9;
+  --accent-gold: #C8902E;
+  --accent-gold-light: #F5E6CC;
+  --shadow-sm: 0 1px 3px rgba(15,43,76,0.06);
+  --shadow-md: 0 4px 16px rgba(15,43,76,0.08);
+  --shadow-lg: 0 8px 32px rgba(15,43,76,0.12);
+  --radius: 8px;
+  --radius-lg: 14px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(15,43,76,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-inner {
+  max-width: 1140px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px; height: 64px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: var(--white);
+  font-weight: 700; font-size: 1.05rem;
+}
+.nav-logo img { height: 34px; width: auto; }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a {
+  color: rgba(255,255,255,0.75); text-decoration: none;
+  font-size: 0.875rem; font-weight: 500; letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 92vh; display: flex; align-items: center;
+  background: linear-gradient(165deg, var(--navy) 0%, var(--navy-mid) 55%, var(--blue) 100%);
+  position: relative; overflow: hidden; padding-top: 64px;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(46,109,168,0.25) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(200,144,46,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1140px; margin: 0 auto; padding: 60px 24px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(200,144,46,0.15); border: 1px solid rgba(200,144,46,0.3);
+  border-radius: 100px; padding: 6px 16px;
+  color: var(--accent-gold-light); font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 20px;
+}
+.hero-badge::before {
+  content: ''; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent-gold); flex-shrink: 0;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 5vw, 3.4rem); font-weight: 700;
+  color: var(--white); line-height: 1.15; margin-bottom: 8px;
+}
+.hero-sub {
+  font-size: 1.15rem; font-weight: 500; color: var(--blue-light);
+  margin-bottom: 18px;
+}
+.hero-desc {
+  font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.7;
+  max-width: 520px; margin-bottom: 28px;
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 26px; border-radius: var(--radius);
+  font-size: 0.9rem; font-weight: 600; text-decoration: none;
+  transition: all 0.25s ease; cursor: pointer; border: none;
+}
+.btn-primary {
+  background: var(--accent-gold); color: var(--white);
+  box-shadow: 0 2px 12px rgba(200,144,46,0.3);
+}
+.btn-primary:hover { background: #B57F28; transform: translateY(-1px); }
+.btn-outline {
+  background: transparent; color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.3);
+}
+.btn-outline:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
+
+.hero-visual {
+  display: flex; justify-content: center; align-items: center;
+}
+.hero-logo-frame {
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-logo-frame img {
+  width: 260px; height: auto; border-radius: 12px;
+  filter: drop-shadow(0 12px 32px rgba(0,0,0,0.3));
+}
+
+/* ── SECTION COMMON ── */
+.section { padding: 80px 24px; }
+.section-inner { max-width: 1140px; margin: 0 auto; }
+.section-label {
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--blue); margin-bottom: 8px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.3rem); font-weight: 700;
+  color: var(--navy); line-height: 1.2; margin-bottom: 16px;
+}
+.section-desc {
+  font-size: 1rem; color: var(--text-secondary); max-width: 640px;
+  line-height: 1.7; margin-bottom: 40px;
+}
+.section-dark { background: var(--navy); }
+.section-dark .section-label { color: var(--accent-gold); }
+.section-dark .section-title { color: var(--white); }
+.section-dark .section-desc { color: rgba(255,255,255,0.65); }
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+}
+.about-text p { margin-bottom: 16px; color: var(--text-secondary); line-height: 1.75; }
+.about-badges {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 32px;
+}
+.about-badge {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--sky); border-radius: var(--radius);
+  padding: 14px 16px; font-size: 0.85rem; font-weight: 600; color: var(--navy);
+}
+.about-badge .badge-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--blue); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem; flex-shrink: 0;
+}
+
+/* ── SERVICES ── */
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.service-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 28px 24px;
+  transition: all 0.3s ease; position: relative; overflow: hidden;
+}
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--accent-gold));
+  opacity: 0; transition: opacity 0.3s;
+}
+.service-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.service-card:hover::before { opacity: 1; }
+.service-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: var(--sky); color: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; margin-bottom: 16px;
+}
+.service-card h3 {
+  font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 8px;
+}
+.service-card p {
+  font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;
+}
+.naics-tag {
+  display: inline-block; background: var(--sky); color: var(--blue);
+  font-size: 0.75rem; font-weight: 700; padding: 4px 10px;
+  border-radius: 100px; letter-spacing: 0.02em;
+}
+
+/* ── WHY / DIFFERENTIATORS ── */
+.diff-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+}
+.diff-card {
+  display: flex; gap: 18px; padding: 24px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg); transition: all 0.25s;
+}
+.diff-card:hover { background: rgba(255,255,255,0.1); }
+.diff-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-weight: 700; color: var(--accent-gold);
+  line-height: 1; min-width: 40px;
+}
+.diff-card h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+.diff-card p { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+/* ── COMPANY DATA ── */
+.data-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.data-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 24px;
+}
+.data-card h3 {
+  font-size: 0.92rem; font-weight: 700; color: var(--navy);
+  margin-bottom: 14px; padding-bottom: 10px;
+  border-bottom: 2px solid var(--sky);
+}
+.data-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 6px 0; font-size: 0.88rem;
+}
+.data-label { color: var(--text-light); }
+.data-value { color: var(--navy); font-weight: 600; font-family: 'DM Sans', monospace; }
+.data-list { list-style: none; }
+.data-list li {
+  padding: 5px 0; font-size: 0.88rem; color: var(--text-secondary);
+  display: flex; align-items: center; gap: 8px;
+}
+.data-list li::before {
+  content: ''; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--blue); flex-shrink: 0;
+}
+.data-naics-code {
+  font-weight: 700; color: var(--blue); min-width: 58px; display: inline-block;
+}
+
+/* ── PAST PERFORMANCE ── */
+.perf-content { max-width: 800px; }
+.perf-content > p { color: rgba(255,255,255,0.7); line-height: 1.75; margin-bottom: 20px; }
+.perf-items { margin: 24px 0; display: flex; flex-direction: column; gap: 16px; }
+.perf-item {
+  padding: 18px 22px; background: rgba(255,255,255,0.05);
+  border-left: 3px solid var(--accent-gold); border-radius: 0 var(--radius) var(--radius) 0;
+}
+.perf-item h4 { font-size: 0.92rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+.perf-item p { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+.perf-cta {
+  margin-top: 36px; padding: 24px 28px;
+  background: rgba(200,144,46,0.1); border: 1px solid rgba(200,144,46,0.25);
+  border-radius: var(--radius-lg);
+}
+.perf-cta h3 { font-size: 1.05rem; font-weight: 700; color: var(--accent-gold); margin-bottom: 6px; }
+.perf-cta p { font-size: 0.92rem; color: rgba(255,255,255,0.65); }
+
+/* ── CONTACT ── */
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: start;
+}
+.contact-info-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 32px;
+}
+.contact-row {
+  display: flex; gap: 14px; padding: 14px 0;
+  border-bottom: 1px solid var(--sky);
+}
+.contact-row:last-child { border-bottom: none; }
+.contact-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--sky); color: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+.contact-row h4 { font-size: 0.82rem; font-weight: 600; color: var(--text-light); margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.04em; }
+.contact-row a, .contact-row p { font-size: 0.95rem; color: var(--navy); text-decoration: none; font-weight: 500; }
+.contact-row a:hover { color: var(--blue); }
+.teaming-box {
+  margin-top: 24px; padding: 20px;
+  background: var(--sky); border-radius: var(--radius);
+}
+.teaming-box h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.teaming-box p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; }
+
+.contact-form {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 32px;
+}
+.contact-form h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 20px; }
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block; font-size: 0.82rem; font-weight: 600;
+  color: var(--text-secondary); margin-bottom: 6px;
+  text-transform: uppercase; letter-spacing: 0.03em;
+}
+.form-group input, .form-group textarea {
+  width: 100%; padding: 12px 14px; border: 1.5px solid var(--border);
+  border-radius: var(--radius); font-family: inherit; font-size: 0.92rem;
+  color: var(--text); transition: border-color 0.2s; background: var(--cream);
+}
+.form-group input:focus, .form-group textarea:focus {
+  outline: none; border-color: var(--blue); background: var(--white);
+}
+.form-group textarea { resize: vertical; min-height: 110px; }
+.btn-submit {
+  width: 100%; background: var(--navy); color: white;
+  padding: 14px; border: none; border-radius: var(--radius);
+  font-family: inherit; font-size: 0.92rem; font-weight: 600;
+  cursor: pointer; transition: background 0.25s;
+}
+.btn-submit:hover { background: var(--navy-mid); }
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 48px 24px 28px;
+}
+.footer-inner {
+  max-width: 1140px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: start;
+  flex-wrap: wrap; gap: 32px;
+}
+.footer-brand { max-width: 320px; }
+.footer-brand img { height: 30px; margin-bottom: 12px; }
+.footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+.footer-links { display: flex; gap: 48px; }
+.footer-col h4 {
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: rgba(255,255,255,0.4); margin-bottom: 12px;
+}
+.footer-col a {
+  display: block; font-size: 0.88rem; color: rgba(255,255,255,0.65);
+  text-decoration: none; padding: 3px 0; transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--white); }
+.footer-bottom {
+  max-width: 1140px; margin: 32px auto 0;
+  padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.8rem; color: rgba(255,255,255,0.35); text-align: center;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  opacity: 0; transform: translateY(24px);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.hero-badge, .hero h1, .hero-sub, .hero-desc, .hero-btns {
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.hero h1 { animation-delay: 0.1s; }
+.hero-sub { animation-delay: 0.2s; }
+.hero-desc { animation-delay: 0.3s; }
+.hero-btns { animation-delay: 0.4s; }
+.hero-visual { animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards; opacity: 0; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero-desc { margin-left: auto; margin-right: auto; }
+  .hero-btns { justify-content: center; }
+  .hero-visual { order: -1; }
+  .hero-logo-frame img { width: 180px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .diff-grid { grid-template-columns: 1fr; }
+  .data-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; }
+  .footer-links { flex-direction: column; gap: 24px; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--navy); padding: 16px 24px; gap: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-toggle { display: block; }
+  .about-badges { grid-template-columns: 1fr; }
+  .section { padding: 56px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════ NAV ════ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <img src="https://sagnllc1.github.io/sagnllc-website/sagn_logo_clean.png" alt="SAGN LLC Logo">
+      SAGN LLC
+    </a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#differentiators">Why SAGN</a></li>
+      <li><a href="#company-data">Company Data</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ════ HERO ════ -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">Woman-Owned Small Business</div>
+      <h1>SAGN LLC</h1>
+      <p class="hero-sub">General Services &amp; Solutions</p>
+      <p class="hero-desc">Government contractor delivering reliable facility services, supply chain solutions, and procurement support across Florida and the Southeast United States.</p>
+      <div class="hero-btns">
+        <a href="https://sagnllc1.github.io/sagnllc-website/SAGN_LLC_Capability_Statement.pdf" class="btn btn-primary">Download Capability Statement</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-logo-frame">
+        <img src="https://sagnllc1.github.io/sagnllc-website/sagn_logo_original.jpg" alt="SAGN LLC winged S logo">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ ABOUT ════ -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">Built to Serve. Ready to Deliver.</h2>
+        <p>SAGN LLC is a Miami-Dade based, woman-owned small business founded by Joanne Seepersad. We specialize in providing dependable general services and supply chain solutions to federal, state, and local government agencies.</p>
+        <p>From supply sourcing and procurement fulfillment to grounds maintenance coordination, SAGN LLC offers the agility of a small business with the professionalism that government contracts demand. We are SAM.gov registered, listed on MyFloridaMarketPlace, and prepared to accept purchase orders through standard government procurement channels.</p>
+        <p>As a new entrant in the government contracting space, we bring fresh energy, competitive pricing, and an owner-managed approach where accountability is never delegated. Our owner holds a background in commercial facility services, procurement operations, and administrative management, bringing practical experience to every contract we pursue.</p>
+        <p>We welcome teaming arrangements and mentor-protégé partnerships with established primes.</p>
+      </div>
+      <div class="fade-up" style="animation-delay:0.15s">
+        <div class="about-badges">
+          <div class="about-badge">
+            <div class="badge-icon">&#10003;</div>
+            SAM.gov Registered
+          </div>
+          <div class="about-badge">
+            <div class="badge-icon">&#9734;</div>
+            Woman-Owned Small Business<br><span style="font-size:0.75rem;font-weight:400;color:var(--text-light);">(SBA WOSB certification in progress)</span>
+          </div>
+          <div class="about-badge">
+            <div class="badge-icon">&#9872;</div>
+            Florida Registered Vendor
+          </div>
+          <div class="about-badge">
+            <div class="badge-icon">&#9670;</div>
+            Small Business
+          </div>
+          <div class="about-badge">
+            <div class="badge-icon">&#9733;</div>
+            Military Spouse-Owned Business
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SERVICES ════ -->
+<section class="section" id="services" style="background:var(--sky);">
+  <div class="section-inner">
+    <p class="section-label">Core Competencies</p>
+    <h2 class="section-title">What We Do</h2>
+    <p class="section-desc">Focused service lines backed by hands-on experience and an established supplier network.</p>
+    <div class="services-grid">
+
+      <div class="service-card fade-up">
+        <div class="service-icon">&#128466;</div>
+        <h3>Janitorial &amp; Cleaning Supplies</h3>
+        <p>Sourcing and delivery of janitorial products, cleaning supplies, sanitation materials, and service establishment equipment for government facilities. Supply fulfillment only — no cleaning services performed.</p>
+        <span class="naics-tag">NAICS 423850</span>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">&#127793;</div>
+        <h3>Landscaping &amp; Grounds Maintenance</h3>
+        <p>Professional landscape maintenance for government properties and public installations. Services include mowing, tree and shrub trimming, irrigation management, seasonal planting, and general grounds upkeep. Delivered through licensed subcontractor partnerships in South Florida.</p>
+        <span class="naics-tag">NAICS 561730</span>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">&#9881;</div>
+        <h3>Industrial &amp; Facility Supplies</h3>
+        <p>Procurement and delivery of industrial equipment, machinery, safety supplies, and facility maintenance materials through our vetted supplier network. TAA and Berry Amendment compliance verified on all orders.</p>
+        <span class="naics-tag">NAICS 423840</span>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">&#128196;</div>
+        <h3>Office Supplies &amp; Commodities</h3>
+        <p>Procurement and delivery of office supplies, paper products, breakroom essentials, and general-use commodities. Fast turnaround on quotes with competitive pricing tailored to government purchasing requirements.</p>
+        <span class="naics-tag">NAICS 424120</span>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">&#128200;</div>
+        <h3>Vendor Sourcing &amp; RFQ Response</h3>
+        <p>Comprehensive vendor identification and supply chain coordination across all service lines. We respond quickly to RFQs with compliant proposals and competitive pricing. Our supplier network enables accurate quotes and tight procurement deadlines.</p>
+        <span class="naics-tag">Cross-cutting</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ WHY SAGN ════ -->
+<section class="section section-dark" id="differentiators">
+  <div class="section-inner">
+    <p class="section-label">Our Advantage</p>
+    <h2 class="section-title">Why Partner with SAGN LLC</h2>
+    <p class="section-desc">The agility and accountability of an owner-operated firm, backed by established supplier relationships.</p>
+    <div class="diff-grid">
+      <div class="diff-card fade-up">
+        <div class="diff-num">01</div>
+        <div>
+          <h3>Owner-Operated, Minimal Overhead</h3>
+          <p>No layers between you and the work. Direct communication with the owner means faster decisions, lower costs, and zero bureaucratic delays.</p>
+        </div>
+      </div>
+      <div class="diff-card fade-up">
+        <div class="diff-num">02</div>
+        <div>
+          <h3>Strategically Located</h3>
+          <p>Based within 30 miles of major government facilities in Miami-Dade and Broward counties. Rapid response times for on-site service needs.</p>
+        </div>
+      </div>
+      <div class="diff-card fade-up">
+        <div class="diff-num">03</div>
+        <div>
+          <h3>Direct Accountability</h3>
+          <p>Owner-managed with personal accountability on every contract. No staff rotation or handoffs — you always know who is responsible for your project.</p>
+        </div>
+      </div>
+      <div class="diff-card fade-up">
+        <div class="diff-num">04</div>
+        <div>
+          <h3>Ready to Receive POs Today</h3>
+          <p>Registered on SAM.gov, DLA DIBBS, MyFloridaMarketPlace, and Broward County vendor systems. Compliance paperwork is complete — we're ready to start.</p>
+        </div>
+      </div>
+      <div class="diff-card fade-up">
+        <div class="diff-num">05</div>
+        <div>
+          <h3>Established Supplier Network</h3>
+          <p>Network of vetted suppliers across industrial equipment, office products, janitorial supplies, and landscaping materials. We leverage volume pricing and pass savings directly to government clients.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ COMPANY DATA ════ -->
+<section class="section" id="company-data">
+  <div class="section-inner">
+    <p class="section-label">Company Data</p>
+    <h2 class="section-title">Contractor Information</h2>
+    <p class="section-desc">Everything a contracting officer needs to verify, register, and order.</p>
+    <div class="data-grid">
+
+      <div class="data-card fade-up">
+        <h3>Identifiers</h3>
+        <div class="data-row"><span class="data-label">CAGE Code</span><span class="data-value">125K5</span></div>
+        <div class="data-row"><span class="data-label">UEI</span><span class="data-value">KMFNA8MUCQ69</span></div>
+        <div class="data-row"><span class="data-label">DUNS</span><span class="data-value">145316313</span></div>
+      </div>
+
+      <div class="data-card fade-up">
+        <h3>NAICS Codes</h3>
+        <ul class="data-list">
+          <li><span class="data-naics-code">424120</span> Stationery &amp; Office Supplies</li>
+          <li><span class="data-naics-code">423850</span> Service Establishment Equipment &amp; Supplies</li>
+          <li><span class="data-naics-code">423840</span> Industrial Machinery &amp; Equipment</li>
+          <li><span class="data-naics-code">561730</span> Landscaping Services</li>
+        </ul>
+      </div>
+
+      <div class="data-card fade-up">
+        <h3>Designations</h3>
+        <ul class="data-list">
+          <li>Small Business</li>
+          <li>Woman-Owned Small Business (SBA WOSB certification in progress)</li>
+          <li>Military Spouse-Owned Business</li>
+          <li>Florida Registered Vendor</li>
+        </ul>
+      </div>
+
+      <div class="data-card fade-up">
+        <h3>Registered Platforms</h3>
+        <ul class="data-list">
+          <li>SAM.gov</li>
+          <li>DLA DIBBS</li>
+          <li>OpenGov</li>
+          <li>MyFloridaMarketPlace</li>
+          <li>Miami-Dade County Vendor Registry</li>
+          <li>Local Business Tax Receipt (LBT) — Miami-Dade</li>
+          <li>Broward County School District</li>
+        </ul>
+      </div>
+
+      <div class="data-card fade-up">
+        <h3>How to Order</h3>
+        <p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.65;">SAGN LLC accepts purchase orders through MyFloridaMarketPlace, OpenGov, DLA DIBBS, and open market procurement. Contact us for a quote or RFQ response.</p>
+        <div style="margin-top:14px;">
+          <a href="https://sagnllc1.github.io/sagnllc-website/SAGN_LLC_Capability_Statement.pdf" class="btn btn-primary" style="font-size:0.82rem;padding:10px 18px;">Download Capability Statement</a>
+        </div>
+      </div>
+
+      <div class="data-card fade-up">
+        <h3>Service Area</h3>
+        <p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.65;">Florida &amp; Southeast United States</p>
+        <p style="font-size:0.82rem;color:var(--text-light);margin-top:8px;">Headquartered in Homestead, FL — within 30 miles of major government installations in Miami-Dade and Broward counties.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ PAST PERFORMANCE ════ -->
+<section class="section section-dark" id="past-performance">
+  <div class="section-inner">
+    <p class="section-label">Track Record</p>
+    <h2 class="section-title">Building Our Track Record</h2>
+    <div class="perf-content fade-up">
+      <p>SAGN LLC is a newly established government contractor actively building its contract performance record. While we are new to the government contracting space, our owner brings direct, hands-on experience from the private sector:</p>
+      <div class="perf-items">
+        <div class="perf-item">
+          <h4>Facility Services</h4>
+          <p>Practical experience in commercial cleaning operations, including scheduling, supply management, quality control, and client communication for multi-site cleaning engagements.</p>
+        </div>
+        <div class="perf-item">
+          <h4>Procurement &amp; Vendor Management</h4>
+          <p>Demonstrated ability to source equipment competitively, negotiate vendor pricing, and manage the full quote-to-delivery cycle. Recent procurement experience includes sourcing and quoting industrial equipment for a county government solicitation through competitive supplier channels.</p>
+        </div>
+        <div class="perf-item">
+          <h4>Administrative &amp; Operations Support</h4>
+          <p>Background in office administration, documentation, and operational coordination that supports accurate proposal preparation and contract compliance.</p>
+        </div>
+      </div>
+      <p>We are actively pursuing opportunities as both a prime contractor and subcontractor, and we welcome teaming arrangements with established primes looking for a dependable woman-owned small business partner to fulfill small business participation goals.</p>
+      <div class="perf-cta">
+        <h3>Ready to Work With Us?</h3>
+        <p>Give us the opportunity to demonstrate our capabilities. We are prepared to start with smaller task orders and purchase orders, and scale as we earn your confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CONTACT ════ -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <p class="section-label">Get Started</p>
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-desc">Ready to discuss your requirements? We respond to all inquiries within one business day.</p>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info-card fade-up">
+          <div class="contact-row">
+            <div class="contact-icon">&#9742;</div>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:+19544943137">(954) 494-3137</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">&#9993;</div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:sagn.llc.1@gmail.com">sagn.llc.1@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">&#9872;</div>
+            <div>
+              <h4>Location</h4>
+              <p>Homestead, FL 33030</p>
+            </div>
+          </div>
+        </div>
+        <div class="teaming-box fade-up" style="margin-top:20px;">
+          <h4>Teaming Opportunities</h4>
+          <p>SAGN LLC is available as a woman-owned small business subcontractor for supply chain support, commodity procurement, vendor sourcing, and facility service coordination. We also seek mentor-protégé partnerships with established primes. Let's discuss how we can support your next proposal.</p>
+        </div>
+      </div>
+      <div class="contact-form fade-up">
+        <h3>Send Us a Message</h3>
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone (optional)</label>
+          <input type="tel" placeholder="(xxx) xxx-xxxx">
+        </div>
+        <div class="form-group">
+          <label>Message *</label>
+          <textarea placeholder="Tell us about your requirements..." required></textarea>
+        </div>
+        <button class="btn-submit" type="button">Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://sagnllc1.github.io/sagnllc-website/sagn_logo_clean.png" alt="SAGN LLC">
+      <p>SAGN LLC — General Services &amp; Solutions<br>Joanne Seepersad, Owner<br>(954) 494-3137 &middot; sagn.llc.1@gmail.com<br>Homestead, FL 33030</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#differentiators">Why SAGN</a>
+        <a href="#company-data">Company Data</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 SAGN LLC. All rights reserved.
+  </div>
+</footer>
+
+<!-- ════ SCROLL ANIMATIONS ════ -->
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').style.boxShadow = window.scrollY > 40 ? '0 2px 20px rgba(0,0,0,0.15)' : 'none';
+});
+</script>
+</body>
+</html>
