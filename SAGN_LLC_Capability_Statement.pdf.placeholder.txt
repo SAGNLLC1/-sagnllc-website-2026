@@ -1,0 +1,9 @@
+REPLACE THIS FILE.
+
+Save your updated capability statement PDF as exactly:
+  SAGN_LLC_Capability_Statement.pdf
+in this folder (next to index.html), and delete this placeholder.
+
+The website links to that filename from:
+  • Hero "Download Capability Statement" CTA
+  • "How to Order" card
