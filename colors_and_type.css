@@ -1,0 +1,166 @@
+/* ============================================================
+   SAGN LLC — Design Tokens
+   Sourced from sagnllc-website-2026/index.html
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+  /* ── BRAND COLORS ── */
+  --navy:           #0F2B4C;   /* primary — deep navy, used for backgrounds, headings */
+  --navy-mid:       #1A3D6B;   /* gradient mid-stop, hover state on navy buttons */
+  --blue:           #2E6DA8;   /* primary accent — links, focus rings, section labels */
+  --blue-light:     #3D8FD4;   /* hero subtitle, lighter blue accent */
+
+  /* ── BRAND NEUTRALS ── */
+  --sky:            #E8F1F8;   /* very light blue — section backgrounds, badge fills */
+  --sky-deep:       #D1E3F0;   /* deeper sky for borders/dividers */
+  --cream:          #FAFCFE;   /* page background — barely off-white, cool */
+  --white:          #FFFFFF;
+
+  /* ── TEXT ── */
+  --text:           #1C2A3A;   /* body */
+  --text-secondary: #4A5E73;   /* paragraph copy on light bg */
+  --text-light:     #6B7F94;   /* helper / meta */
+
+  /* ── BORDER ── */
+  --border:         #D4DFE9;
+
+  /* ── ACCENT (single gold) ── */
+  --accent-gold:        #C8902E;   /* primary CTA, decorative numerals, badge bullets */
+  --accent-gold-hover:  #B57F28;
+  --accent-gold-light:  #F5E6CC;   /* subtle gold tint */
+
+  /* ── SEMANTIC FG (light surface) ── */
+  --fg-1: var(--navy);
+  --fg-2: var(--text);
+  --fg-3: var(--text-secondary);
+  --fg-4: var(--text-light);
+
+  /* ── SEMANTIC FG (dark surface) ── */
+  --on-dark-1: #FFFFFF;
+  --on-dark-2: rgba(255,255,255,0.75);
+  --on-dark-3: rgba(255,255,255,0.65);
+  --on-dark-4: rgba(255,255,255,0.4);
+
+  /* ── SHADOWS ── */
+  --shadow-sm: 0 1px 3px rgba(15,43,76,0.06);
+  --shadow-md: 0 4px 16px rgba(15,43,76,0.08);
+  --shadow-lg: 0 8px 32px rgba(15,43,76,0.12);
+  --shadow-cta: 0 2px 12px rgba(200,144,46,0.30);
+
+  /* ── RADII ── */
+  --radius-sm: 6px;
+  --radius:    8px;
+  --radius-lg: 14px;
+  --radius-pill: 100px;
+
+  /* ── SPACING (8pt scale) ── */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-8: 32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+  --s-20: 80px;
+
+  /* ── LAYOUT ── */
+  --container-max: 1140px;
+  --nav-height: 64px;
+
+  /* ── TYPOGRAPHY ── */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body:    'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono:    'DM Sans', ui-monospace, 'SF Mono', Menlo, monospace; /* numerics use DM Sans */
+
+  /* ── EASING ── */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-fast: 0.2s;
+  --t-med:  0.25s;
+  --t-slow: 0.6s;
+}
+
+/* ============================================================
+   BASE TYPE
+   ============================================================ */
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.h-display, h1.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  color: var(--white);
+}
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 2.3rem);
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  color: var(--navy);
+}
+
+h3, .h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--navy);
+}
+
+h4, .h4 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--navy);
+}
+
+p, .p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.eyebrow, .section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+}
+
+.eyebrow-gold { color: var(--accent-gold); }
+
+.meta, small {
+  font-size: 0.82rem;
+  color: var(--text-light);
+}
+
+code, .code, .data-value {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+}
