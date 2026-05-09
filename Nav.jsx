@@ -4,7 +4,6 @@ function Nav({ active, onNavigate }) {
     { id: "services", label: "Services" },
     { id: "differentiators", label: "Why SAGN" },
     { id: "past-performance", label: "Track Record" },
-    { id: "capability", label: "Capability" },
     { id: "company-data", label: "Company Data" },
     { id: "contact", label: "Contact" },
   ];
