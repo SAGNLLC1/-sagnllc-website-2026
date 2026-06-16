@@ -138,14 +138,14 @@ body{font-family:var(--font-body);color:var(--text);background:var(--cream);line
   /* Mobile nav: hamburger reveals a stacked dropdown */
   .nav-toggle{display:flex}
   .nav-links{
+    display:none;
     position:absolute;top:64px;left:0;right:0;
     flex-direction:column;gap:0;
     background:rgba(15,43,76,.99);backdrop-filter:blur(12px);
     border-bottom:1px solid rgba(255,255,255,.08);
-    max-height:0;overflow:hidden;
-    transition:max-height .3s var(--ease-out);
+    box-shadow:0 12px 28px rgba(0,0,0,.25);
   }
-  .nav-links.open{max-height:420px}
+  .nav-links.open{display:flex}
   .nav-links li{border-top:1px solid rgba(255,255,255,.07)}
   .nav-links li:first-child{border-top:none}
   .nav-links a{display:block;padding:15px 24px;font-size:1rem}
