@@ -11,7 +11,7 @@ function Hero({ onPrimary, onSecondary }) {
             and procurement support across Florida and the Southeast United States.
           </p>
           <div className="hero-btns">
-            <a className="btn btn-primary" href="../../assets/SAGN_Capability_Statement.pdf" target="_blank" rel="noopener" download>
+            <a className="btn btn-primary" href="./SAGN_LLC_Capability_Statement.pdf" target="_blank" rel="noopener" download>
               <IconDownload /> Download Capability Statement
             </a>
             <button className="btn btn-outline" onClick={onSecondary}>
