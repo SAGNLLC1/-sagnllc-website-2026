@@ -29,7 +29,7 @@ function ContactForm({ onSubmit }) {
   // 1. Go to formspree.io, sign up free, create a form (sends to sagn.llc.1@gmail.com).
   // 2. Paste the form's endpoint below (looks like https://formspree.io/f/abcdwxyz).
   // Until then, the form opens the visitor's email app pre-addressed to you.
-  const FORMSPREE_ENDPOINT = ""; // e.g. "https://formspree.io/f/abcdwxyz"
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzdqlrpg"; // active
 
   const [state, setState] = React.useState({ name: "", email: "", phone: "", message: "", sent: false, sending: false });
   const set = (k) => (e) => setState(s => ({ ...s, [k]: e.target.value }));
@@ -60,24 +60,30 @@ function ContactForm({ onSubmit }) {
           headers: { "Accept": "application/json" },
           body: new FormData(e.target),
         });
-        if (res.ok) { setState(s => ({ ...s, sent: true, sending: false })); onSubmit?.(state); return; }
+        if (res.ok) { setState(s => ({ ...s, sent: true, sending: false, via: "form" })); onSubmit?.(state); return; }
       } catch (err) { /* fall through to email-app method */ }
       setState(s => ({ ...s, sending: false }));
     }
     openMail();
-    setState(s => ({ ...s, sent: true }));
+    setState(s => ({ ...s, sent: true, via: "mail" }));
     onSubmit?.(state);
   };
   if (state.sent) {
     return (
       <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-        <h3>Almost There</h3>
-        <p style={{fontSize:".95rem", color:"var(--text-secondary)", lineHeight:1.65}}>
-          Your email app should have opened with your message ready to send to
-          <strong> sagn.llc.1@gmail.com</strong>. Just press send and we&rsquo;ll reply within one business day.
-        </p>
+        <h3>Message Sent</h3>
+        {state.via === "form" ? (
+          <p style={{fontSize:".95rem", color:"var(--text-secondary)", lineHeight:1.65}}>
+            Thank you &mdash; your message has been delivered to <strong>SAGN LLC</strong>. We respond to all inquiries within one business day.
+          </p>
+        ) : (
+          <p style={{fontSize:".95rem", color:"var(--text-secondary)", lineHeight:1.65}}>
+            Your email app should have opened with your message ready to send to
+            <strong> sagn.llc.1@gmail.com</strong>. Just press send and we&rsquo;ll reply within one business day.
+          </p>
+        )}
         <p style={{fontSize:".88rem", color:"var(--text-light)", lineHeight:1.6, marginTop:12}}>
-          Nothing opened? Email us directly at <a href="mailto:sagn.llc.1@gmail.com" style={{color:"var(--blue)", fontWeight:600}}>sagn.llc.1@gmail.com</a> or call (954) 494-3137.
+          Prefer to reach us directly? Email <a href="mailto:sagn.llc.1@gmail.com" style={{color:"var(--blue)", fontWeight:600}}>sagn.llc.1@gmail.com</a> or call (954) 494-3137.
         </p>
         <button className="btn-submit" style={{marginTop:20}} onClick={() => setState({ name:"", email:"", phone:"", message:"", sent:false })}>
           Write another message
