@@ -1,10 +1,9 @@
-function ServiceCard({ icon, title, body, naics }) {
+function ServiceCard({ icon, title, body }) {
   return (
     <div className="service-card">
       <div className="service-icon">{icon}</div>
       <h3>{title}</h3>
       <p>{body}</p>
-      <span className="naics-tag">{naics}</span>
     </div>
   );
 }

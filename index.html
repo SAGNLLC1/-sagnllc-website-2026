@@ -6,7 +6,7 @@
 <title>SAGN LLC — General Services & Solutions | Government Contractor</title>
 <meta name="description" content="SAGN LLC is a woman-owned small business providing janitorial supplies, industrial equipment sourcing, and supply chain solutions to federal, state, and local government agencies in Florida.">
 <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
-<link rel="stylesheet" href="./styles.css?v=4">
+<link rel="stylesheet" href="./styles.css?v=10">
 </head>
 <body>
 <div id="root"></div>
@@ -16,13 +16,13 @@
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
-<script type="text/babel" src="./Icons.jsx?v=4"></script>
-<script type="text/babel" src="./Nav.jsx?v=4"></script>
-<script type="text/babel" src="./Hero.jsx?v=4"></script>
-<script type="text/babel" src="./Section.jsx?v=4"></script>
-<script type="text/babel" src="./Cards.jsx?v=4"></script>
-<script type="text/babel" src="./Contact.jsx?v=4"></script>
-<script type="text/babel" src="./Footer.jsx?v=4"></script>
+<script type="text/babel" src="./Icons.jsx?v=10"></script>
+<script type="text/babel" src="./Nav.jsx?v=10"></script>
+<script type="text/babel" src="./Hero.jsx?v=10"></script>
+<script type="text/babel" src="./Section.jsx?v=10"></script>
+<script type="text/babel" src="./Cards.jsx?v=10"></script>
+<script type="text/babel" src="./Contact.jsx?v=10"></script>
+<script type="text/babel" src="./Footer.jsx?v=10"></script>
 
 <script type="text/babel">
 const { useState, useEffect } = React;
@@ -56,7 +56,7 @@ function App(){
     { icon:<IconFlag/>, title:"Federal, State & Local Supply Fulfillment", body:"Supply fulfillment across all government tiers — from federal agencies on DLA DIBBS to Florida state and local procurement systems.", naics:"Cross-cutting" },
   ];
   const diffs = [
-    { num:"01", title:"Women-Owned Small Business", body:"WOSB certification in progress with the SBA. Eligible for woman-owned set-aside opportunities and supplier diversity goals." },
+    { num:"01", title:"Women-Owned Small Business", body:"Self-certified small business; SBA WOSB certification in progress. Positioned for woman-owned set-aside eligibility and supplier diversity goals once certified." },,
     { num:"02", title:"SAM.gov Registered, CAGE Active", body:"Active SAM.gov registration with CAGE Code 125K5 — ready to perform immediately. No onboarding lag." },
     { num:"03", title:"Owner-Operated Accountability", body:"Direct accountability on every order, every time. No staff rotation, no handoffs — you always know who is responsible." },
     { num:"04", title:"Rapid Turnaround", body:"No layers of management slowing response time. Quotes returned quickly, POs processed without delay." },
@@ -75,7 +75,7 @@ function App(){
       <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:48, alignItems:"start"}} className="about-grid">
         <div>
           <p style={{marginBottom:16, color:"var(--text-secondary)", lineHeight:1.75}}>SAGN LLC is a Miami-Dade based, woman-owned small business founded by Joanne Seepersad. We specialize in dependable general services and supply chain solutions for federal, state, and local government agencies.</p>
-          <p style={{marginBottom:16, color:"var(--text-secondary)", lineHeight:1.75}}>From supply sourcing and procurement fulfillment to grounds maintenance coordination, SAGN LLC offers the agility of a small business with the professionalism that government contracts demand. We are SAM.gov registered, listed on MyFloridaMarketPlace, and prepared to accept purchase orders through standard government procurement channels.</p>
+          <p style={{marginBottom:16, color:"var(--text-secondary)", lineHeight:1.75}}>From supply sourcing to procurement fulfillment and vendor coordination, SAGN LLC offers the agility of a small business with the professionalism that government contracts demand. We are SAM.gov registered, listed on MyFloridaMarketPlace, and prepared to accept purchase orders through standard government procurement channels.</p>
           <p style={{color:"var(--text-secondary)", lineHeight:1.75}}>We welcome teaming arrangements and mentor-protégé partnerships with established primes.</p>
         </div>
         <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:12}}>
@@ -84,7 +84,7 @@ function App(){
             { i:<IconStar/>,  t:"Woman-Owned Small Business", s:"SBA WOSB cert in progress" },
             { i:<IconFlag/>,  t:"Florida Registered Vendor" },
             { i:<IconShield/>,t:"Small Business" },
-            { i:<IconStar/>,  t:"Military Spouse-Owned" },
+            { i:<IconStar/>,  t:"Military Spouse-Owned", s:"Self-certified" },
           ].map((b,i) => (
             <div key={i} style={{display:"flex", alignItems:"center", gap:10, background:"var(--sky)", borderRadius:8, padding:"14px 16px", fontSize:".85rem", fontWeight:600, color:"var(--navy)"}}>
               <div style={{width:36, height:36, borderRadius:"50%", background:"var(--blue)", color:"#fff", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0}}>{b.i}</div>
@@ -119,11 +119,11 @@ function App(){
         <div style={{background:"#fff", border:"1px solid var(--border)", borderRadius:"var(--radius-lg)", padding:"28px"}}>
           <h3 style={{fontSize:"1rem", fontWeight:700, color:"var(--navy)", marginBottom:16}}>Scope &amp; Responsibilities</h3>
           <ul className="data-list" style={{display:"flex", flexDirection:"column", gap:4}}>
-            <li>Managed daily bookkeeping, vendor payments &amp; cash reconciliation</li>
-            <li>Coordinated with product suppliers; tracked inventory purchasing activity</li>
-            <li>Oversaw high-volume transaction processing in a multi-department environment</li>
-            <li>Supervised customer service operations; enforced compliance with policy</li>
-            <li>Demonstrated 13 years of reliability in financial &amp; vendor management</li>
+            <li>Reconciled daily cash, vendor payments, and bookkeeping across a high-volume operation</li>
+            <li>Sourced and coordinated with product suppliers; tracked inventory and purchasing activity</li>
+            <li>Processed high-volume transactions across multiple departments with full accountability</li>
+            <li>Supervised front-end staff and enforced compliance with company policy and procedures</li>
+            <li>Sustained 13 years of reliability in financial management and vendor coordination</li>
           </ul>
         </div>
       </div>
@@ -134,7 +134,7 @@ function App(){
         <DataCard title="Identifiers">
           <DataRow label="CAGE Code" value="125K5" />
           <DataRow label="UEI" value="KMFNA8MUCQ69" />
-          <DataRow label="DUNS" value="145316313" />
+          <DataRow label="Entity" value="LLC — Florida" />
         </DataCard>
         <DataCard title="NAICS Codes">
           <ul className="data-list">
@@ -145,21 +145,23 @@ function App(){
         </DataCard>
         <DataCard title="Designations">
           <ul className="data-list">
-            <li>Small Business</li>
-            <li>Woman-Owned Small Business (WOSB in progress)</li>
+            <li>Small Business (self-certified)</li>
+            <li>Woman-Owned Small Business (WOSB pending)</li>
+            <li>Military Spouse-Owned (self-certified)</li>
             <li>Florida Registered LLC</li>
             <li>Miami-Dade Local Business Tax receipt — April 2026</li>
           </ul>
         </DataCard>
         <DataCard title="Registered Platforms">
           <ul className="data-list">
-            <li>SAM.gov</li><li>DLA DIBBS</li><li>OpenGov</li>
-            <li>MyFloridaMarketPlace</li><li>Miami-Dade Vendor Registry</li>
-            <li>Broward County School District</li>
+            <li>SAM.gov</li><li>OpenGov</li><li>DLA</li>
+            <li>DemandStar</li><li>MyFloridaMarketPlace</li><li>Bonfire</li>
           </ul>
+          <p style={{fontSize:".78rem", color:"var(--text-light)", marginTop:10, lineHeight:1.5, borderTop:"1px solid var(--border)", paddingTop:10}}>In progress: Miami-Dade County vendor registration &amp; Miami-Dade County Public Schools certification.</p>
         </DataCard>
         <DataCard title="How to Order">
-          <p style={{fontSize:".88rem", color:"var(--text-secondary)", lineHeight:1.65}}>Purchase orders accepted through MyFloridaMarketPlace, OpenGov, DLA DIBBS, and open market procurement.</p>
+          <p style={{fontSize:".88rem", color:"var(--text-secondary)", lineHeight:1.65}}>Submit RFQs and purchase orders through any of our registered platforms, or via open-market procurement. Email us to request a quote.</p>
+          <p style={{fontSize:".82rem", color:"var(--navy)", fontWeight:600, lineHeight:1.55, marginTop:10}}>Quotes returned within 1–2 business days. GPC and micro-purchases welcome — no order too small.</p>
           <a className="btn btn-primary" href={CAPSTAT_URL} target="_blank" rel="noopener" style={{marginTop:14, fontSize:".82rem", padding:"10px 18px"}}>
             <IconDownload /> Download Capability Statement
           </a>
@@ -174,7 +176,7 @@ function App(){
     <Section id="contact" label="Get Started" title="Contact Us" desc="Ready to discuss your requirements? We respond to all inquiries within one business day.">
       <div className="contact-grid">
         <div><ContactInfo /></div>
-        <ContactForm onSubmit={() => toast("Message sent — we’ll reply within one business day")} />
+        <ContactForm onSubmit={() => toast("Opening your email app…")} />
       </div>
     </Section>
 

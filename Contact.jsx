@@ -25,23 +25,62 @@ function ContactInfo() {
 window.ContactInfo = ContactInfo;
 
 function ContactForm({ onSubmit }) {
-  const [state, setState] = React.useState({ name: "", email: "", phone: "", message: "", sent: false });
+  // OPTIONAL FREE UPGRADE — no paid email needed:
+  // 1. Go to formspree.io, sign up free, create a form (sends to sagn.llc.1@gmail.com).
+  // 2. Paste the form's endpoint below (looks like https://formspree.io/f/abcdwxyz).
+  // Until then, the form opens the visitor's email app pre-addressed to you.
+  const FORMSPREE_ENDPOINT = ""; // e.g. "https://formspree.io/f/abcdwxyz"
+
+  const [state, setState] = React.useState({ name: "", email: "", phone: "", message: "", sent: false, sending: false });
   const set = (k) => (e) => setState(s => ({ ...s, [k]: e.target.value }));
-  const send = (e) => {
+
+  const openMail = () => {
+    const subject = `Government inquiry from ${state.name || "a contracting officer"}`;
+    const body =
+      `Name: ${state.name}\n` +
+      `Email: ${state.email}\n` +
+      `Phone: ${state.phone || "\u2014"}\n\n` +
+      `${state.message}`;
+    const mailto = `mailto:sagn.llc.1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    // Anchor-click is more reliable than setting location.href across browsers.
+    const a = document.createElement("a");
+    a.href = mailto;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
+  const send = async (e) => {
     e.preventDefault();
+    if (FORMSPREE_ENDPOINT) {
+      try {
+        setState(s => ({ ...s, sending: true }));
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: new FormData(e.target),
+        });
+        if (res.ok) { setState(s => ({ ...s, sent: true, sending: false })); onSubmit?.(state); return; }
+      } catch (err) { /* fall through to email-app method */ }
+      setState(s => ({ ...s, sending: false }));
+    }
+    openMail();
     setState(s => ({ ...s, sent: true }));
     onSubmit?.(state);
   };
   if (state.sent) {
     return (
       <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-        <h3>Message Sent</h3>
+        <h3>Almost There</h3>
         <p style={{fontSize:".95rem", color:"var(--text-secondary)", lineHeight:1.65}}>
-          Thanks, {state.name || "we"} — we respond to all inquiries within one business day.
-          A copy has been queued to <strong>sagn.llc.1@gmail.com</strong>.
+          Your email app should have opened with your message ready to send to
+          <strong> sagn.llc.1@gmail.com</strong>. Just press send and we&rsquo;ll reply within one business day.
+        </p>
+        <p style={{fontSize:".88rem", color:"var(--text-light)", lineHeight:1.6, marginTop:12}}>
+          Nothing opened? Email us directly at <a href="mailto:sagn.llc.1@gmail.com" style={{color:"var(--blue)", fontWeight:600}}>sagn.llc.1@gmail.com</a> or call (954) 494-3137.
         </p>
         <button className="btn-submit" style={{marginTop:20}} onClick={() => setState({ name:"", email:"", phone:"", message:"", sent:false })}>
-          Send another message
+          Write another message
         </button>
       </form>
     );
@@ -49,11 +88,12 @@ function ContactForm({ onSubmit }) {
   return (
     <form className="contact-form" onSubmit={send}>
       <h3>Send Us a Message</h3>
-      <div className="form-group"><label>Full Name *</label><input required value={state.name} onChange={set("name")} placeholder="Your full name" /></div>
-      <div className="form-group"><label>Email Address *</label><input type="email" required value={state.email} onChange={set("email")} placeholder="your@email.com" /></div>
-      <div className="form-group"><label>Phone (optional)</label><input type="tel" value={state.phone} onChange={set("phone")} placeholder="(xxx) xxx-xxxx" /></div>
-      <div className="form-group"><label>Message *</label><textarea required value={state.message} onChange={set("message")} placeholder="Tell us about your requirements…" /></div>
-      <button className="btn-submit" type="submit">Send Message</button>
+      <div className="form-group"><label>Full Name *</label><input name="name" required value={state.name} onChange={set("name")} placeholder="Your full name" /></div>
+      <div className="form-group"><label>Email Address *</label><input name="email" type="email" required value={state.email} onChange={set("email")} placeholder="your@email.com" /></div>
+      <div className="form-group"><label>Phone (optional)</label><input name="phone" type="tel" value={state.phone} onChange={set("phone")} placeholder="(xxx) xxx-xxxx" /></div>
+      <div className="form-group"><label>Message *</label><textarea name="message" required value={state.message} onChange={set("message")} placeholder="Tell us about your requirements…" /></div>
+      <button className="btn-submit" type="submit" disabled={state.sending}>{state.sending ? "Sending…" : "Send Message"}</button>
+      <p style={{fontSize:".8rem", color:"var(--text-light)", textAlign:"center", marginTop:10, lineHeight:1.5}}>Prefer to write directly? <a href="mailto:sagn.llc.1@gmail.com" style={{color:"var(--blue)", fontWeight:600}}>sagn.llc.1@gmail.com</a></p>
     </form>
   );
 }
